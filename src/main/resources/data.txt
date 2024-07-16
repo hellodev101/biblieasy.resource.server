@@ -1,0 +1,31 @@
+
+-- ADD THREE USERS
+INSERT INTO `bookdb`.`user` (`user_id`, `name`, `password`, `username`) VALUES ('1', 'soraya', '$2a$12$6uUVlwhkBqbGKftcBwRfTe8fLB8eHrVsxoc808r2SYgJSU1Q2St1O', 'soraya');
+INSERT INTO `bookdb`.`user` (`user_id`, `name`, `password`, `username`) VALUES ('2', 'justin', '$2a$12$6uUVlwhkBqbGKftcBwRfTe8fLB8eHrVsxoc808r2SYgJSU1Q2St1O', 'justin');
+INSERT INTO `bookdb`.`user` (`user_id`, `name`, `password`, `username`) VALUES ('3', 'paul', '$2a$12$6uUVlwhkBqbGKftcBwRfTe8fLB8eHrVsxoc808r2SYgJSU1Q2St1O', 'paul');
+
+-- ADD ROLE
+INSERT INTO `bookdb`.`role` (id, name) VALUES
+                                           ('1', 'ADMIN'),
+                                           ('2', 'LIBRARIAN'),
+                                           ('3', 'USER');
+
+-- Add ADMIN ROLE TO SORAYA
+INSERT INTO `bookdb`.`user_roles` (`user_user_id`, `roles_id`)VALUES (1,1);
+-- Add LIBRARIAN ROLE TO JUSTIN
+INSERT INTO `bookdb`.`user_roles` (`user_user_id`, `roles_id`)VALUES (2,2);
+-- Add USER ROLE TO PAUL
+INSERT INTO `bookdb`.`user_roles` (`user_user_id`, `roles_id`)VALUES (3,3);
+
+-- ADD TWO BOOKS
+INSERT INTO book (book_id, author, edition, publisher, title) VALUES
+                            ('1','CayS.Horstmann', '11th Edition', 'Prentice Hall', 'Core Java Volume I – Fundamentals'),
+                            ('2','Joshua Bloch', '3rd Edition', 'Addison Wesley', 'Effective Java');
+
+
+-- INSERT INTO `bookdb`.`loan` (`book_id`, `user_id`, `created_at`) VALUES ('1', '1', '2021-12-06');
+-- INSERT INTO `bookdb`.`loan` (`book_id`, `user_id`, `created_at`) VALUES ('2', '1', '2021-12-06');
+
+-- INSERT INTO book (book_id, author, edition, release_year, title, ready_for_pick_up,times_extended) VALUES
+--                             ('1','CayS.Horstmann', '11th Edition', '2009', 'Core Java Volume I – Fundamentals',0,0),
+--                             ('2','Joshua Bloch', '3rd Edition', '2003', 'Effective Java',0,0);
