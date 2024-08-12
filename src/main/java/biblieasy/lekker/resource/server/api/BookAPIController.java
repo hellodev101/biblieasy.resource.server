@@ -47,6 +47,15 @@ public class BookAPIController {
         return (Book) bookRepository.findByTitle(title);
     }
 
+    @RequestMapping(value ="/search/book", method = RequestMethod.GET)
+    public ResponseEntity<List<Book>> searchBook(
+            @RequestParam(required = false) String title,
+            @RequestParam(required = false) String author,
+            @RequestParam(required = false) String edition,
+            @RequestParam(required = false) String publisher) {
+        return ResponseEntity.ok().body(bookRepository.searchBook(title, author, edition,publisher));
+    }
+
     @DeleteMapping(path ="/delete/book/{bookId}")
     public void deleteBook(@PathVariable("bookId") Long bookId){
         bookService.deleteBook(bookId);
