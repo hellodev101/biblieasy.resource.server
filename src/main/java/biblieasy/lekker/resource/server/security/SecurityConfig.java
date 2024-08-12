@@ -82,7 +82,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // ROLE RESTRICTION
         //Save new role
-        http.authorizeRequests().antMatchers(POST, "/api/role/save").hasAnyRole("ADMIN");
+        http.authorizeRequests().antMatchers(POST, "/api/role/save").hasAuthority("ADMIN");
         //Add role to user
         http.authorizeRequests().antMatchers(POST, "/api/role/addtouser").hasAuthority("ADMIN");
         //Get roles
